@@ -1,0 +1,19 @@
+{
+  "name": "aq-visualizer",
+  "version": "1.0.0",
+  "description": "Assignment 2 | Distributed Systems | Air Quality Visualizer",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThamalDilanka/aq-visualizer.git"
+  },
+  "author": "IT18009132 & IT18001112",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ThamalDilanka/aq-visualizer/issues"
+  },
+  "homepage": "https://github.com/ThamalDilanka/aq-visualizer#readme"
+}
