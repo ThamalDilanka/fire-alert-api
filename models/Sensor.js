@@ -9,6 +9,10 @@ const sensorSchema = new mongoose.Schema({
 		type: String,
 		required: true,
 	},
+	activated: {
+		type: Boolean,
+		default: true,
+	},
 });
 
 const Sensor = mongoose.model('sensors', sensorSchema);

@@ -4,6 +4,8 @@ var bodyParser = require('body-parser');
 
 // Importing routes from the routes folder
 const sensorRoutes = require('./routes/sensorRoutes');
+const sensorReadingRoutes = require('./routes/sensorReadingRoutes');
+const adminRoutes = require('./routes/adminRoutes');
 
 // Creating a Express application
 const app = express();
@@ -18,5 +20,7 @@ if (process.env.NODE_ENV === 'development') {
 
 // Setting the routes to the app as middlewares
 app.use('/api/v1/sensors', sensorRoutes);
+app.use('/api/v1/sensorReadings', sensorReadingRoutes);
+app.use('/api/v1/admin', adminRoutes);
 
 module.exports = app;
