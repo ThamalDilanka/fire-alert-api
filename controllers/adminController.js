@@ -10,41 +10,20 @@ exports.getCredentials = async (req, res) => {
 			admin.password === req.body.password &&
 			req.params.id === process.env.AUTH_REQUEST_PASSWORD
 		) {
-            res.status(200).json({
-                status: 'Access Granted',
-                data: {
-                    authorized: true
-                },
-            });
+			res.status(200).json({
+				status: 'Access Granted',
+				data: {
+					authorized: true,
+				},
+			});
 		} else {
-            res.status(400).json({
-                status: 'Access Denied',
-                data: {
-                    authorized: false
-                },
-            });
-        }
-
-
-
-	} catch (err) {
-		res.status(400).json({
-			status: 'failed',
-			message: err.message,
-		});
-	}
-};
-
-exports.updateAdmin = async (req, res) => {
-	try {
-		const admin = await Admin.findByIdAndUpdate(req.params.id, req.body, {
-			new: true,
-			runValidators: true,
-		});
-
-		res.status(200).json({
-			status: 'success',
-		});
+			res.status(400).json({
+				status: 'Access Denied',
+				data: {
+					authorized: false,
+				},
+			});
+		}
 	} catch (err) {
 		res.status(400).json({
 			status: 'failed',

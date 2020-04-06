@@ -3,9 +3,6 @@ const adminController = require('./../controllers/adminController');
 
 const router = express.Router();
 
-router
-	.route('/:id')
-	.post(adminController.getCredentials)
-	.patch(adminController.updateAdmin);
+router.route('/:id').post(adminController.getCredentials);
 
 module.exports = router;
