@@ -1,7 +1,6 @@
 const Sensor = require('../models/Sensor');
 
 exports.createSensor = async (req, res) => {
-	console.log(req.body);
 	try {
 		const newSensor = await Sensor.create(req.body);
 
