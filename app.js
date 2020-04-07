@@ -6,6 +6,7 @@ var bodyParser = require('body-parser');
 const sensorRoutes = require('./routes/sensorRoutes');
 const sensorReadingRoutes = require('./routes/sensorReadingRoutes');
 const adminRoutes = require('./routes/adminRoutes');
+const emailRoutes = require('./routes/emailRoutes');
 
 // Creating a Express application
 const app = express();
@@ -22,5 +23,6 @@ if (process.env.NODE_ENV === 'development') {
 app.use('/api/v1/sensors', sensorRoutes);
 app.use('/api/v1/sensorReadings', sensorReadingRoutes);
 app.use('/api/v1/admin', adminRoutes);
+app.use('/api/v1/email', emailRoutes);
 
 module.exports = app;

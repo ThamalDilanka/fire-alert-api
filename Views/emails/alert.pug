@@ -1,0 +1,56 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title Email
+  body(style="font-family: Arial, Helvetica, sans-serif; margin-bottom: 100px;")
+    div(style="width: 100%;")
+      div(style="\
+      max-width: 1000px;\
+      margin-left: auto;\
+      margin-right: auto;\
+      ")
+        img(src="https://i.ibb.co/YX6Y2bH/warning-header.jpg" alt="warning-header" style="width: 100%;")
+        br
+        h2 Dear Admin,
+        p
+          | A harmful air condition has been detected in #{floor} floor #{room}
+          | room. Please pay your attention to recover the air condition
+          | back to normal.
+        br
+        hr
+        div(style="width: 100%; text-align: center; margin-top: 50px;")
+          h1(style="color: rgb(0, 102, 255);")
+            | #{floor} Floor | Room #{room}
+          table(style="width: 60%; margin: auto;")
+            tr
+              td
+                h3 Smoke Level
+              td
+                h3 CO2 Level
+            tr
+              td
+                span(style="\
+                font-size: 50px;\
+                color: rgb(187, 19, 19);\
+                ") #{smokeLevel}
+              td
+                span(style="\
+                font-size: 50px;\
+                color: rgb(187, 19, 19);\
+                ") #{co2Level}
+        br
+        div(style="width: 100%; text-align: center;")
+          hr
+          br
+          br
+          a(href=`${url}` target="_blank" style="\
+          text-decoration: none;\
+          width: 50%;\
+          height: 100px;\
+          background-color: rgb(22, 104, 199);\
+          padding: 10px 50px;\
+          color: white;\
+          border-radius: 20px;\
+          ") More Details

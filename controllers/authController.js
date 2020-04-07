@@ -10,7 +10,7 @@ const signToken = (id) => {
 
 exports.signup = async (req, res, next) => {
 	try {
-		const newAdmin = await Admin.create({
+		let newAdmin = await Admin.create({
 			name: req.body.name,
 			email: req.body.email,
 			password: req.body.password,
@@ -18,6 +18,9 @@ exports.signup = async (req, res, next) => {
 		});
 
 		const token = signToken(newAdmin._id);
+
+		// Remove password from admin
+		newAdmin.password = undefined;
 
 		res.status(201).json({
 			status: 'success',
@@ -77,7 +80,7 @@ exports.login = async (req, res, next) => {
 
 exports.protect = async (req, res, next) => {
 	try {
-		let token = getToken(req);
+		let token = getTokenFromRequest(req);
 
 		// Check whether is in correct format
 		if (!token) {
@@ -122,7 +125,7 @@ exports.protect = async (req, res, next) => {
 };
 
 // Extract the token from the request
-const getToken = (req) => {
+const getTokenFromRequest = (req) => {
 	if (
 		req.headers.authorization &&
 		req.headers.authorization.startsWith('Bearer')
