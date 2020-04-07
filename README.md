@@ -12,6 +12,8 @@ Open endpoints require no Authentication.
 * **POST**   `localhost:8000/api/v1/admin/signup`               : Register a new admin
 > The request must have the admin object with following attributes. Email should be a ***valid email addess*** and the password shoud contain ***at least 8 characters***.
 
+**Sample Admin Object that expected by the server**
+
 ```json
 {
   "name": "Admin Name",
@@ -25,6 +27,7 @@ Open endpoints require no Authentication.
 
 > The request must have a object with following attributes.
 
+**Sample Login Request Object**
 ```json
 {
   "email": "adminemail@gmail.com",
@@ -85,5 +88,29 @@ To access this end points you **should pass valid token** in the request header 
   "activated": true,
   "floor": "5th",
   "room": "B203"
+}
+```
+
+## Special Endpoints
+
+### email
+
+* **POST**   `localhost:8000/api/v1/email`               : Sends warning email to the admin / given email address
+
+> This endpoint uses a separate authentication machanism. You need to have the email sending access token which pre defined in the server to send email. The token must be included in the headers in following format.
+
+> **KEY** `Authorization` | **VALUE** `<email-sending-access-token>`
+
+**Sample Request Object**
+
+```json
+{
+	"to": "recipient@email.com",
+	"sensor": "5e8a13e64bc0b91a18ab6903",
+	"reading": {
+		"smokeLevel": 4,
+    	"co2Level": 8,
+		"time": "2020-04-05T17:37:39.281Z"
+	}
 }
 ```
