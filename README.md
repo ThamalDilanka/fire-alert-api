@@ -1,37 +1,52 @@
-# Air Quality Visualizer - API Documentation
+# Air Quality Visualizer - 
+## API Documentation
+#### Distributed Systems | SE3020 |  Assignment 2
 
-Distributed Systems | SE3020 |  Assignment 2
-
-This API is responsible to handle all the sensor details and administrator details. Most of the end points are open and for administrator login uses a simple authentication method.
+This API is responsible to handle all the sensor details and administrator authentication data.
 
 ## Open Endpoints
 
 Open endpoints require no Authentication.
 
-### sensors
+### admin
 
-* GET    `localhost:8000/api/v1/sensors`               : Returns all the sensor document
-* GET    `localhost:8000/api/v1/sensors/<sensor-id>`   : Returns one specific sensor document
-* POST   `localhost:8000/api/v1/sensors`               : Create a new sensor document
-* PATCH  `localhost:8000/api/v1/sensors/<sensor-id>`   : Update existing sensor document
-* DELETE `localhost:8000/api/v1/sensors/<sensor-id>`   : Delete specific sensor document
-
-**Sample Sensor Document**
+* **POST**   `localhost:8000/api/v1/admin/signup`               : Register a new admin
+> The request must have the admin object with following attributes. Email should be a ***valid email addess*** and the password shoud contain ***at least 8 characters***.
 
 ```json
 {
-  "_id": "5e8a13e64bc0b91a18ab6903",
-  "activated": true,
-  "floor": "5th",
-  "room": "B203"
+  "name": "Admin Name",
+  "email": "adminemail@gmail.com",
+  "password": "mypassword", 
+  "passwordConfirm": "mypassword"
 }
 ```
 
+* **POST**   `localhost:8000/api/v1/admin/login`               : Returns a access token
+
+> The request must have a object with following attributes.
+
+```json
+{
+  "email": "adminemail@gmail.com",
+  "passwordConfirm": "mypassword"
+}
+```
+
+* **GET**    `localhost:8000/api/v1/admin`               : Returns all the admin documents
+
+> This endpoint just returns admins ***Name*** and the ***Email address***. It doesn't contain the encrypted password.
+
+### sensors
+
+* **GET**    `localhost:8000/api/v1/sensors`               : Returns all the sensor documents
+* **GET**    `localhost:8000/api/v1/sensors/<sensor-id>`   : Returns one specific sensor document
+
 ### sensorReadings
 
-* GET    `localhost:8000/api/v1/sensorReadings/<sensor-id>`          : Returns all the readings documents of given sensor-id
-* GET    `localhost:8000/api/v1/sensorReadings/<sensor-id>?time=last`: Returns the last reading documents of given sensor-id
-* POST   `localhost:8000/api/v1/sensorReadings/<sensor-id>`          : Adds a sensor reading to given sensor-id
+* **GET**    `localhost:8000/api/v1/sensorReadings/<sensor-id>`          : Returns all the readings documents of given sensor-id
+* **GET**    `localhost:8000/api/v1/sensorReadings/<sensor-id>?time=last`: Returns the last reading documents of given sensor-id
+* **POST**   `localhost:8000/api/v1/sensorReadings/<sensor-id>`          : Adds a sensor reading to given sensor-id
 
 **Sample Sensor Reading Document**
 ```json
@@ -48,25 +63,23 @@ Open endpoints require no Authentication.
 
 ## Endpoints that require Authentication
 
-This end point requires the password as a query parameter
+To access this end points you **should pass valid token** in the request header along with the request. Once you successfully logged in to the system, it will sends you a valid token. You may **set that token to the request header** as key value pair as follows. **It must accompany this format**.
 
-* POST    `localhost:8000/api/v1/admin/<password>`: Accepts admin object and returns boolean value that indicates authentication status
+> **KEY** `Authorization` | **VALUE** `Bearer<space><the-token-that-received-when-logged-in>`
 
-**Accepts**
-```json
-{
-  "userName": "<admin-username>",
-  "password": "<admin-password>"
-}
-```
+### sensors
 
-**Reaturns**
+* **POST**   `localhost:8000/api/v1/sensors`               : Create a new sensor document
+* **PATCH**  `localhost:8000/api/v1/sensors/<sensor-id>`   : Update existing sensor document
+* **DELETE** `localhost:8000/api/v1/sensors/<sensor-id>`   : Delete specific sensor document
+
+**Sample Sensor Document**
 
 ```json
 {
-  "status": "Access Granted",
-  "data": {
-  "authorized": true
-  }
+  "_id": "5e8a13e64bc0b91a18ab6903",
+  "activated": true,
+  "floor": "5th",
+  "room": "B203"
 }
 ```
