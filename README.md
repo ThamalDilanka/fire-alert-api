@@ -1,5 +1,4 @@
-# Air Quality Visualizer - 
-## API Documentation
+# Air Quality Visualizer - API Documentation
 #### Distributed Systems | SE3020 |  Assignment 2
 
 This API is responsible to handle all the sensor details and administrator authentication data.
@@ -66,6 +65,11 @@ Open endpoints require no Authentication.
 To access this end points you **should pass valid token** in the request header along with the request. Once you successfully logged in to the system, it will sends you a valid token. You may **set that token to the request header** as key value pair as follows. **It must accompany this format**.
 
 > **KEY** `Authorization` | **VALUE** `Bearer<space><the-token-that-received-when-logged-in>`
+
+### admin
+
+* **PATCH**  `localhost:8000/api/v1/admin/<admin-id>`   : Update admin details
+> This endpoint allows only to update the **Name and the Email Address** of the admin.
 
 ### sensors
 
