@@ -1,6 +1,7 @@
 const Email = require('../utils/email');
 const Sensor = require('../models/Sensor');
 const pug = require('pug');
+const Moment = require('moment');
 
 exports.emailHandler = async (req, res) => {
 	try {
@@ -20,12 +21,15 @@ exports.emailHandler = async (req, res) => {
 		}
 
 		const sensorObject = await Sensor.findById(sensor);
+		const time = Moment(sensorObject.time);
 		const subject = `Warning! A Harmful air condition detected in ${sensorObject.floor} floor, room ${sensorObject.room}`;
 		const html = pug.renderFile(`${__dirname}/../views/emails/alert.pug`, {
 			floor: sensorObject.floor,
 			room: sensorObject.room,
 			smokeLevel: reading.smokeLevel,
 			co2Level: reading.co2Level,
+			date: time.format('MMM Do YYYY'),
+			time: time.format('LT'),
 			url: 'https://www.google.com',
 		});
 
