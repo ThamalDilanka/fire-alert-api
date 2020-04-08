@@ -23,7 +23,7 @@ exports.emailHandler = async (req, res) => {
 		const sensorObject = await Sensor.findById(sensor);
 		const time = Moment(sensorObject.time);
 		const subject = `Warning! A Harmful air condition detected in ${sensorObject.floor} floor, room ${sensorObject.room}`;
-		const html = pug.renderFile(`${__dirname}/../views/emails/alert.pug`, {
+		const html = pug.renderFile(`../Views/emails/alert.pug`, {
 			floor: sensorObject.floor,
 			room: sensorObject.room,
 			smokeLevel: reading.smokeLevel,
