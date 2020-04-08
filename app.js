@@ -1,6 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
-var bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
+const path = require('path');
 
 // Importing routes from the routes folder
 const sensorRoutes = require('./routes/sensorRoutes');
@@ -24,5 +25,11 @@ app.use('/api/v1/sensors', sensorRoutes);
 app.use('/api/v1/sensorReadings', sensorReadingRoutes);
 app.use('/api/v1/admin', adminRoutes);
 app.use('/api/v1/email', emailRoutes);
+
+// Setting static webpage
+app.use(express.static('./client'));
+app.get('*', (req, res) => {
+	res.sendFile(path.resolve(__dirname, 'client', index.html));
+});
 
 module.exports = app;
