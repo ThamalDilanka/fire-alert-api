@@ -5,7 +5,7 @@
 	"main": "app.js",
 	"scripts": {
 		"start": "nodemon server.js",
-		"heroku-postbuild": "NPM_CONFIG_PRODUCTION=false"
+		"heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install"
 	},
 	"repository": {
 		"type": "git",
