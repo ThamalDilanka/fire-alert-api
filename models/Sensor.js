@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 
 const sensorSchema = new mongoose.Schema({
+	_id: {
+		type: String,
+		required: true,
+	},
 	floor: {
 		type: String,
 		required: true,
@@ -16,15 +20,12 @@ const sensorSchema = new mongoose.Schema({
 	lastReading: {
 		smokeLevel: {
 			type: Number,
-			required: true,
 		},
 		co2Level: {
 			type: Number,
-			required: true,
 		},
 		time: {
 			type: String,
-			required: true
 		},
 	},
 });

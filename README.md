@@ -4,7 +4,9 @@
 
 This API is responsible to handle all the sensor details and administrator authentication data.
 
-> ***URL = `https://aq-visualizer.herokuapp.com`***
+The API has deployed in the Heroku. This url could be used to interact with it.
+
+> **_URL = `https://aq-visualizer.herokuapp.com`_**
 
 ## Open Endpoints
 
@@ -35,7 +37,7 @@ Open endpoints require no Authentication.
 ```json
 {
 	"email": "adminemail@gmail.com",
-	"passwordConfirm": "mypassword"
+	"password": "mypassword"
 }
 ```
 
@@ -48,19 +50,14 @@ Open endpoints require no Authentication.
 -   **GET** `URL/api/v1/sensors` : Returns all the sensor documents
 -   **GET** `URL/api/v1/sensors/<sensor-id>` : Returns one specific sensor document
 
-**Sample Sensor Document**
+**Sample Sensor Document should POST**
 
 ```json
 {
-	"_id": "5e8a13e64bc0b91a18ab6903",
+	"_id": "<sensor-id-that-mentioned-in-the-sensor>",
 	"activated": true,
-	"floor": "11th",
-	"room": "B111",
-	"lastReading": {
-		"smokeLevel": 4,
-		"co2Level": 5,
-		"time": "Wed Apr 08 2020 16:28:43 GMT+0530 (India Standard Time)"
-	}
+	"floor": "4th",
+	"room": "X111"
 }
 ```
 
