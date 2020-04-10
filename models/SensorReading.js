@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const sensorReadingSchema = new mongoose.Schema({
 	sensor: {
-		type: mongoose.Schema.Types.ObjectId,
+		type: String,
 		ref: 'Sensor',
 	},
 	reading: {
