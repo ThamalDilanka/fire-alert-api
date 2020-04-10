@@ -6,7 +6,7 @@ const sensorSchema = new mongoose.Schema({
 		required: true,
 	},
 	floor: {
-		type: String,
+		type: Number,
 		required: true,
 	},
 	room: {
