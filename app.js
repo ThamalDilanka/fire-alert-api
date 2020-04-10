@@ -2,6 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const path = require('path');
+const cors = require('cors');
 
 // Importing routes from the routes folder
 const sensorRoutes = require('./routes/sensorRoutes');
@@ -11,6 +12,9 @@ const emailRoutes = require('./routes/emailRoutes');
 
 // Creating a Express application
 const app = express();
+
+// CORS support
+app.use(cors());
 
 // Setting body parser to get access of request.body
 app.use(bodyParser.json());
@@ -29,7 +33,7 @@ app.use('/api/v1/email', emailRoutes);
 // Setting static webpage
 app.use(express.static('./client'));
 app.get('*', (req, res) => {
-	res.sendFile(path.resolve(__dirname, 'client', index.html));
+	res.sendFile(path.resolve(__dirname, 'client', 'index.html'));
 });
 
 module.exports = app;
