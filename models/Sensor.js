@@ -20,9 +20,11 @@ const sensorSchema = new mongoose.Schema({
 	lastReading: {
 		smokeLevel: {
 			type: Number,
+			required: true,
 		},
 		co2Level: {
 			type: Number,
+			required: true,
 		},
 		time: {
 			type: String,
