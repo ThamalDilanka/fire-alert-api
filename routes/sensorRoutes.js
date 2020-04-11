@@ -12,7 +12,7 @@ router
 router
 	.route('/:id')
 	.get(sensorController.getSensor)
-	.patch(authController.protect, sensorController.updateSensor)
+	.patch(sensorController.updateSensor)
 	.delete(authController.protect, sensorController.deleteSensor);
 
 module.exports = router;
