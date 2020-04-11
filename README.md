@@ -1,4 +1,4 @@
-# Air Quality Visualizer - API Documentation
+# Fire Alert - API Documentation
 
 #### Distributed Systems | SE3020 | Assignment 2
 
@@ -6,7 +6,7 @@ This API is responsible to handle all the sensor details and administrator authe
 
 The API has deployed in the Heroku. This url could be used to interact with it.
 
-> **_URL = `https://aq-visualizer.herokuapp.com`_**
+> **_URL = `https://fire-alert-solution.herokuapp.com/`_**
 
 ## Open Endpoints
 
@@ -15,7 +15,7 @@ Open endpoints require no Authentication.
 ### admin
 
 -   **POST** `URL/api/v1/admin/signup` : Register a new admin
-    > The request must have the admin object with following attributes. Email should be a **_valid email addess_** and the password shoud contain **_at least 8 characters_**.
+    > The request must have the admin object with following attributes. Email should be a **_valid email address_** and the password should contain **_at least 8 characters_**.
 
 **Sample Admin Object that expected by the server**
 
