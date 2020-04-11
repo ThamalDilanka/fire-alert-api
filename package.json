@@ -1,7 +1,7 @@
 {
-	"name": "aq-visualizer",
+	"name": "fire-alert-api",
 	"version": "1.0.0",
-	"description": "Assignment 2 | Distributed Systems | Air Quality Visualizer",
+	"description": "Assignment 2 | Distributed Systems | Fire Alert API",
 	"main": "app.js",
 	"scripts": {
 		"start": "node server.js",
@@ -10,14 +10,14 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/ThamalDilanka/aq-visualizer.git"
+		"url": "git+https://github.com/ThamalDilanka/fire-alert-api.git"
 	},
 	"author": "IT18009132 & IT18001112",
 	"license": "ISC",
 	"bugs": {
-		"url": "https://github.com/ThamalDilanka/aq-visualizer/issues"
+		"url": "https://github.com/ThamalDilanka/fire-alert-api/issues"
 	},
-	"homepage": "https://github.com/ThamalDilanka/aq-visualizer#readme",
+	"homepage": "https://github.com/ThamalDilanka/fire-alert-api#readme",
 	"dependencies": {
 		"@sendgrid/mail": "^7.0.0",
 		"bcryptjs": "^2.4.3",
