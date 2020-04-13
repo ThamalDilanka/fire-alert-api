@@ -33,6 +33,8 @@ exports.emailHandler = async (req, res) => {
 			url: 'https://www.google.com',
 		});
 
+		//const html = '<p>Hello</p>'
+
 		await Email.sendEmail(to, subject, html);
 
 		res.status(201).json({
