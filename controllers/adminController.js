@@ -1,5 +1,6 @@
 const Admin = require('../models/Admin');
 
+// Returns the admin object without password
 exports.getAdmin = async (req, res, next) => {
 	try {
 		const admin = await Admin.find();
@@ -18,6 +19,7 @@ exports.getAdmin = async (req, res, next) => {
 	}
 };
 
+// Updates the admin details
 exports.updateAdmin = async (req, res, next) => {
 	try {
 		const admin = await Admin.findByIdAndUpdate(req.params.id, req.body, {

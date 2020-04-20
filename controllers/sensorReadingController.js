@@ -19,6 +19,7 @@ exports.addSensorReading = async (req, res) => {
 			'MMMM Do YYYY, h:mm:ss a'
 		);
 
+		// Update the sensor details
 		await Sensor.findByIdAndUpdate(
 			req.params.id,
 			{ lastReading },
@@ -43,12 +44,15 @@ exports.addSensorReading = async (req, res) => {
 	}
 };
 
+// Returns all the sensor readings
 exports.getSensorReadings = async (req, res) => {
 	try {
+		// find the readings that matches with the given id
 		const sensorReadings = await SensorReading.find({
 			sensor: req.params.id,
 		});
 
+		// Sending the response with sensor readings
 		res.status(200).json({
 			status: 'success',
 			results: sensorReadings.length,
@@ -57,6 +61,7 @@ exports.getSensorReadings = async (req, res) => {
 			},
 		});
 	} catch (err) {
+		// Sending error message when error occurs
 		res.status(400).json({
 			status: 'failed',
 			message: err.message,

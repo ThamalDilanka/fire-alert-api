@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const validator = require('validator');
 const bcrypt = require('bcryptjs');
 
+// Build the admin schema
 const adminSchema = new mongoose.Schema({
 	name: {
 		type: String,
@@ -33,9 +34,12 @@ const adminSchema = new mongoose.Schema({
 });
 
 // Check the password for login
-adminSchema.methods.checkPassword = async function(candidatePassword, adminPassword) {
-    return await bcrypt.compare(candidatePassword, adminPassword);
-}
+adminSchema.methods.checkPassword = async function (
+	candidatePassword,
+	adminPassword
+) {
+	return await bcrypt.compare(candidatePassword, adminPassword);
+};
 
 // Password encryption
 adminSchema.pre('save', async function (next) {
@@ -47,8 +51,6 @@ adminSchema.pre('save', async function (next) {
 	next();
 });
 
-
-
+// Create and export admin schema
 const Admin = mongoose.model('admins', adminSchema);
 module.exports = Admin;
-

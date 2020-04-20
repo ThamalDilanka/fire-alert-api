@@ -4,11 +4,10 @@ const authController = require('./../controllers/authController');
 
 const router = express.Router();
 
-// Signup route
-router.post('/signup', authController.signup);
-router.post('/login', authController.login);
+router.post('/signup', authController.signup); // Signup route
+router.post('/login', authController.login); // Login route
 
-router.route('/').get(adminController.getAdmin);
-router.route('/:id').patch(authController.protect, adminController.updateAdmin);
+router.route('/').get(adminController.getAdmin); // admin root route
+router.route('/:id').patch(authController.protect, adminController.updateAdmin); // admin root route with query parameter
 
 module.exports = router;

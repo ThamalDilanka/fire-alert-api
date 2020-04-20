@@ -3,7 +3,7 @@ const sensorReadingController = require('./../controllers/sensorReadingControlle
 
 const router = express.Router();
 
-router.route('/').get(sensorReadingController.getSensorReadings);
-router.route('/:id').post(sensorReadingController.addSensorReading);
+router.route('/').get(sensorReadingController.getSensorReadings); // sensorReadings root route
+router.route('/:id').post(sensorReadingController.addSensorReading); // sensorReadings root route with query parameter
 
 module.exports = router;

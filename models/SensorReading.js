@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+// Build sensors reading schema
 const sensorReadingSchema = new mongoose.Schema({
 	sensor: {
 		type: String,
@@ -21,5 +22,6 @@ const sensorReadingSchema = new mongoose.Schema({
 	},
 });
 
+// Create and export sensor readings schema
 const SensorReading = mongoose.model('sensorReadings', sensorReadingSchema);
 module.exports = SensorReading;

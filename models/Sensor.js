@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+// Build the sensor schema
 const sensorSchema = new mongoose.Schema({
 	_id: {
 		type: String,
@@ -33,5 +34,6 @@ const sensorSchema = new mongoose.Schema({
 	},
 });
 
+// Create and export the sensor schema
 const Sensor = mongoose.model('sensors', sensorSchema);
 module.exports = Sensor;
