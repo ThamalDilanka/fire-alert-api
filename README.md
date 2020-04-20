@@ -131,3 +131,25 @@ To access this end points you **should pass valid token** in the request header 
 	}
 }
 ```
+
+### sms
+
+-   **POST** `URL/api/v1/sms` : Sends sms alert to the admin / given mobile number
+
+> This endpoint uses a separate authentication mechanism. You need to have the email sending access token which pre defined in the server to send email. The token must be included in the headers in following format.
+
+> **KEY** `Authorization` | **VALUE** `<sms-sending-access-token>`
+
+**Sample Request Object**
+
+```json
+{
+	"to": "+94xxxxxxxxxx",
+	"sensor": "5e8a13e64bc0b91a18ab6903",
+	"reading": {
+		"smokeLevel": 4,
+		"co2Level": 8,
+		"time": "2020-04-05T17:37:39.281Z"
+	}
+}
+```

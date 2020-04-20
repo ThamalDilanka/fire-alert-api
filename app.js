@@ -9,6 +9,7 @@ const sensorRoutes = require('./routes/sensorRoutes');
 const sensorReadingRoutes = require('./routes/sensorReadingRoutes');
 const adminRoutes = require('./routes/adminRoutes');
 const emailRoutes = require('./routes/emailRoutes');
+const smsRoutes = require('./routes/smsRoutes');
 
 // Creating a Express application
 const app = express();
@@ -29,6 +30,7 @@ app.use('/api/v1/sensors', sensorRoutes);
 app.use('/api/v1/sensorReadings', sensorReadingRoutes);
 app.use('/api/v1/admin', adminRoutes);
 app.use('/api/v1/email', emailRoutes);
+app.use('/api/v1/sms', smsRoutes);
 
 // Setting static webpage
 app.use(express.static('./client'));
