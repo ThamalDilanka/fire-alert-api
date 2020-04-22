@@ -144,12 +144,7 @@ To access this end points you **should pass valid token** in the request header 
 
 ```json
 {
-	"to": "+94xxxxxxxxxx",
-	"sensor": "5e8a13e64bc0b91a18ab6903",
-	"reading": {
-		"smokeLevel": 4,
-		"co2Level": 8,
-		"time": "2020-04-05T17:37:39.281Z"
-	}
+	"to": "94xxxxxxxxxx",
+	"sensor": "5e8a13e64bc0b91a18ab6903"
 }
 ```
